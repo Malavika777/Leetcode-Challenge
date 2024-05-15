@@ -1,0 +1,17 @@
+JAVA(Easy)
+class Solution {
+    public int findGCD(int[] nums) {
+        int min;
+        int max;
+        int s=1;
+        Arrays.sort(nums);
+        min=nums[0];
+        max=nums[nums.length-1];
+        for(int i=1;i<=min;i++){
+            if (min%i==0 && max%i==0)
+                s=Math.max(s,i);
+        }
+        return s;
+        
+    }
+}
