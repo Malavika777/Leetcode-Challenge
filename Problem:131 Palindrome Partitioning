@@ -1,0 +1,30 @@
+JAVA(Medium)
+
+class Solution {
+    public List<List<String>> partition(String s) {
+        List<List<String>> res=new ArrayList<>();
+        back(s,0,new ArrayList<>(),res);
+        return res;
+    }
+    private void back(String s,int start,List<String> curr,List<List<String>> res){
+      if(start==s.length()){
+          res.add(new ArrayList<>(curr));
+          return ;
+      }
+        for(int end=start;end<s.length();end++){
+            if (ispal(s,start,end)){
+                curr.add(s.substring(start,end+1));
+                back(s,end+1,curr,res);
+                curr.remove(curr.size()-1);
+            }
+        }
+    }
+        private boolean ispal(String s,int a,int b){
+            while(a<b){
+                if(s.charAt(a++)!=s.charAt(b--))
+                    return false;
+            }
+            return true;
+        }
+    
+}
