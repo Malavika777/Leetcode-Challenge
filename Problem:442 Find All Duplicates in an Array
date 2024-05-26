@@ -1,0 +1,18 @@
+JAVA(MEDIUM)
+
+class Solution {
+    public List<Integer> findDuplicates(int[] nums) {
+        List<Integer> dup = new ArrayList<>();
+        Set<Integer> seen = new HashSet<>();
+        
+        for (int num : nums) {
+            if (seen.contains(num)) {
+                dup.add(num);
+            } else {
+                seen.add(num);
+            }
+        }
+        
+        return dup;
+    }
+}
