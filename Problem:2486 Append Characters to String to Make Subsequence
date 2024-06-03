@@ -1,0 +1,14 @@
+JAVA(Medium)
+class Solution {
+    public int appendCharacters(String s, String t) {
+        int x=s.length();
+        int y=t.length();
+        int sc=0;
+        int tc=0;
+        while(sc<x && tc<y){
+            if(s.charAt(sc)==t.charAt(tc)) tc++;
+            sc++;
+        }
+         return y-tc;
+    }
+}
