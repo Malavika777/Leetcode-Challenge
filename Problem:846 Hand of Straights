@@ -1,0 +1,21 @@
+JAVA(Medium)
+class Solution {
+    public boolean isNStraightHand(int[] h, int g) {
+        if(h.length%g!=0) return false;
+        ArrayList<Integer> list=new ArrayList<>();
+        for(int i:h)
+            list.add(i);
+        Collections.sort(list);
+        for(int i=0;i<list.size();i++){
+            if(list.get(i)!=Integer.MAX_VALUE){
+                for(int j=0;j<g-1;j++){
+                    int ind=list.indexOf(list.get(i)+j+1);
+                    if(ind==-1) return false;
+                    list.set(ind,Integer.MAX_VALUE);
+                }
+                list.set(i,Integer.MAX_VALUE);
+            }
+        }
+        return true;
+    }
+}
