@@ -1,0 +1,18 @@
+JAVA(Medium)
+class Solution {
+    public int minMoves(int t, int m) {
+        int c=0;
+        while(m!=0 && t!=1){
+            if(t%2!=0){
+                c++;
+                t--;
+            }
+            t/=2;
+            c++;
+            m--;
+        }
+        if(t!=1)
+            c+=t-1;
+        return c;
+    }
+}
