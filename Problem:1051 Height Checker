@@ -1,0 +1,11 @@
+JAVA(Easy)
+class Solution {
+    public int heightChecker(int[] h) {
+        int[] dup=Arrays.copyOf(h,h.length);
+        Arrays.sort(h);
+        int c=0;
+        for(int i=0;i<h.length;i++)
+            if(dup[i]!=h[i]) c++;
+        return c;
+    }
+}
