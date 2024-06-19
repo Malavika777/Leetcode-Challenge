@@ -1,0 +1,8 @@
+JAVA(Easy)
+class Solution {
+    public int addedInteger(int[] n1, int[] n2) {
+        Arrays.sort(n1);
+        Arrays.sort(n2);
+        return n2[0]-n1[0];
+    }
+}
