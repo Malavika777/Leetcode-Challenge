@@ -1,0 +1,20 @@
+JAVA(Easy)
+class Solution {
+    public int[] intersect(int[] nums1, int[] nums2) {
+        List<Integer>l=new ArrayList<>();
+        int[] c=new int[1001];
+        for (int num : nums1) {
+            c[num]++;
+        }
+        for (int num : nums2) {
+            if (c[num] > 0) {
+                l.add(num);
+                c[num]--;
+            }
+        }
+        int[] res=new int[l.size()];
+        for(int k=0;k<l.size();k++)
+            res[k]=l.get(k);
+        return res;
+    }
+}
