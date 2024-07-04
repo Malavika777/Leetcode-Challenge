@@ -1,0 +1,17 @@
+JAVA(Easy)
+class Solution {
+    public String toHex(int n1) {
+        long n=n1;
+        if(n==0)
+            return "0";
+        if(n<0)
+            n=(long)Math.pow(2,32)+n;
+        char[] l={'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
+        StringBuffer sb=new StringBuffer();
+        while(n>0){
+            sb.append(l[(int)Math.abs(n%16)]);
+            n=(long)Math.floor(n/16);
+        }
+        return sb.reverse().toString();
+    }
+}
