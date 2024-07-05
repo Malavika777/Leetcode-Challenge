@@ -1,0 +1,15 @@
+JAVA(Easy)
+class Solution {
+    public double minimumAverage(int[] nums) {
+        Arrays.sort(nums);
+        double[] l=new double [nums.length/2];
+        for(int i=0;i<nums.length/2;i++){
+            double c=(nums[i]+nums[nums.length-i-1])/2.0;
+            l[i]=c;
+        }
+        double res=Double.MAX_VALUE;
+        for(int j=0;j<l.length;j++)
+            res=Math.min(res,l[j]);
+        return res;
+    }
+}
