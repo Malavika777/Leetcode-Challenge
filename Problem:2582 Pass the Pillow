@@ -1,0 +1,11 @@
+JAVA(Easy)
+class Solution {
+    public int passThePillow(int n, int t) {
+        int tot=(n-1)*2;
+        int len=t%tot;
+        if(len<n)
+            return len+1;
+        else
+            return tot-len+1;
+        }
+    }
