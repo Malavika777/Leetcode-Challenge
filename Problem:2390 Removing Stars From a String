@@ -1,0 +1,16 @@
+JAVA(Medium)
+class Solution {
+    public String removeStars(String sa) {
+        Stack<Character> s1=new Stack();
+        for(char s:sa.toCharArray()){
+            if(s!='*')
+                s1.push(s);
+            else if(!s1.isEmpty())
+                s1.pop();
+        }
+        String res="";
+        for(char c:s1)
+            res+=c;
+        return res;
+    }
+}
