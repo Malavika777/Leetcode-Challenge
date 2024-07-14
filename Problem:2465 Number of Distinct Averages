@@ -1,0 +1,36 @@
+JAVA(Easy)
+class Solution {   //run time:2ms
+    public int distinctAverages(int[] nums) {
+        List<Double>l=new ArrayList<>();
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length/2;i++){
+            double a=nums[i];
+            double b=nums[nums.length-1-i];
+            l.add((a+b)/2.0);
+        }
+        int c=1;
+        if(l.size()<=1)
+            return l.size();
+        Collections.sort(l);
+        for(int j=1;j<l.size();j++){
+            if(!l.get(j).equals(l.get(j-1)))
+                c++;
+        }
+        return c;
+    }
+}
+Alternate Method using set
+class Solution {  //run time:1ms
+    public int distinctAverages(int[] nums) {
+        Set<Double> l = new HashSet<>();
+        Arrays.sort(nums);
+        
+        for (int i = 0; i < nums.length / 2; i++) {
+            double a = nums[i];
+            double b = nums[nums.length - 1 - i];
+            l.add((a + b) / 2.0);
+        }
+        
+        return l.size();
+    }
+}
