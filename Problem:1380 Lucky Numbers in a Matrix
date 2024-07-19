@@ -1,0 +1,26 @@
+JAVA(Easy)
+class Solution {
+    public List<Integer> luckyNumbers (int[][] mat) {
+        int row=mat.length;
+        int cols=mat[0].length;
+        int[] min=new int[row];
+        Arrays.fill(min,Integer.MAX_VALUE);
+        int[] max=new int[cols];
+        for(int r=0;r<row;r++){
+            for(int c=0;c<cols;c++){
+                int el=mat[r][c];
+                min[r]=Math.min(min[r],el);
+                max[c]=Math.max(max[c],el);
+            }
+        }
+        for(int r=0;r<row;r++){
+            for(int c=0;c<cols;c++){
+                int el=mat[r][c];
+                if(el==min[r] && el==max[c])
+                    return Collections.singletonList(el);
+            }
+        }
+        return Collections.emptyList();
+        
+    }
+}
