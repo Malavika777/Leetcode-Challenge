@@ -1,0 +1,31 @@
+JAVA(Medium)
+class Solution {
+    public List<String> letterCombinations(String digits) {
+        List<String> l=new ArrayList<>();
+        Map<Character,String>map=new HashMap<>();
+        map.put('2',"abc");
+        map.put('3',"def");
+        map.put('4',"ghi");
+        map.put('5',"jkl");
+        map.put('6',"mno");
+        map.put('7',"pqrs");
+        map.put('8',"tuv");
+        map.put('9',"wxyz");
+        if (digits.length() > 0) 
+            solve(0,digits,map,"",l);
+        return l;
+    }
+    private void solve(int ind,String digits,Map<Character,String>map,String res,List<String> l){
+        if(ind==digits.length()){
+            l.add(res);
+            return ;
+        }
+        String m=map.get(digits.charAt(ind));
+        for(int i=0;i<m.length();i++){
+            char curr=m.charAt(i);
+            solve(ind+1,digits,map,res+curr,l);
+        }
+    }
+    
+    
+}
