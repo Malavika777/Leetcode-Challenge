@@ -1,0 +1,45 @@
+JAVA(Medium)
+class Solution {
+    public int rangeSum(int[] nums, int n, int left, int right) {
+        List<Integer>l=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            int sum=nums[i];
+            l.add(nums[i]);
+            for(int j=i+1;j<n;j++){
+                sum+=nums[j];
+                l.add(sum);
+            }
+        }
+        int[] res=new int[l.size()];
+        int j=0;
+        for(int i:l){
+            res[j++]=i;
+        }
+        Arrays.sort(res);
+        int c=0;
+        for(int i=left-1;i<right;i++){
+            c=(c+res[i])%1000000007;
+        }
+        return c;
+    }
+}
+ALTERNATE METHOD
+class Solution {
+    public int rangeSum(int[] nums, int n, int left, int right) {
+        int arr[] = new int[(n*(n+1))/2];
+        int k=0;
+        for(int i=0; i<n; i++){
+            int s=0;
+            for(int j=i; j<n; j++){
+                s+=nums[j];
+                arr[k++] = s;
+            }
+        }
+        Arrays.sort(arr);
+        int sum=0;
+        for(int i=left-1; i<right; i++){
+            sum=(sum+arr[i])%1000000007;
+        }
+        return sum;
+    }
+}
