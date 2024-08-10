@@ -1,0 +1,33 @@
+JAVA(Easy)
+class Solution {
+    public int[] sortEvenOdd(int[] nums) {
+        if(nums.length<3)
+            return nums;
+        List<Integer> o=new ArrayList<>();
+        List<Integer> e=new ArrayList<>();
+        int res[]=new int[nums.length];
+        for(int i=0;i<nums.length;i++){
+            if (i%2==0) 
+                e.add(nums[i]);
+            else 
+                o.add(nums[i]);
+        }
+        Collections.sort(e);
+        Collections.sort(o);
+        Collections.reverse(o);
+        int j=0;
+        int k=0;
+        for(int i=0;i<nums.length;i++){
+             if (i%2==0) 
+                res[i]=e.get(j++);
+             else 
+                res[i]=o.get(k++);
+        }
+        return res;
+
+    }
+
+}
+
+
+   
